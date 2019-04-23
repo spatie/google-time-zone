@@ -42,7 +42,7 @@ class GoogleTimeZoneTest extends TestCase
         $googleTimezone = new GoogleTimeZone($client);
 
         $timezone = $googleTimezone->setApiKey('fake_api_key')
-            ->setTimeStamp( new DateTime('03/15/2016 12:00'))
+            ->setTimeStamp(new DateTime('03/15/2016 12:00'))
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
 
         $this->assertEquals(3600, $timezone['dstOffset']);
