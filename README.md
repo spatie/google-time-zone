@@ -123,6 +123,7 @@ If you are using the package with Laravel, you can simply call `getTimeZoneForCo
 ```php
 GoogleTimeZone::getTimeZoneForCoordinates('39.6034810', '-119.6822510');
 
+/*
 // Will return this array
 [
     'dstOffset' : 0,
