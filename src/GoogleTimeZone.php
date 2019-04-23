@@ -7,7 +7,7 @@ use DateTimeInterface;
 use GuzzleHttp\Client;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
-final class GoogleTimeZone
+class GoogleTimeZone
 {
     /** @var \GuzzleHttp\Client */
     protected $client;
