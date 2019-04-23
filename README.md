@@ -30,7 +30,7 @@ composer require spatie/google-time-zone
 ```
 ## Laravel installation
 
-Thought the package works fine in non-Laravel projects we included some niceties for our fellow artistans.
+Thought the package works fine in non-Laravel projects we included some niceties for our fellow artisans.
 
 In Laravel will autoregister the package itself, you must publish the config file :
 
@@ -72,10 +72,10 @@ $googleTimeZone->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
 /*
 // Will return this array
 [
-	'dstOffset' : 0,
-	'rawOffset' : -28800,
-	'timeZoneId' : 'America/Los_Angeles',
-	'timeZoneName' : 'Pacific Standard Time'
+    'dstOffset' : 0,
+    'rawOffset' : -28800,
+    'timeZoneId' : 'America/Los_Angeles',
+    'timeZoneName' : 'Pacific Standard Time'
 ]
 */
 ```
@@ -99,7 +99,7 @@ $googleTimeZone
 */
 ```
 
-It is possible to specify a timestamp for the location, so daylight savings can be taken into account. We will set this timestamp to the current time by default.
+It is possible to specify a timestamp for the location so that daylight savings can be taken into account. We will set this timestamp to the current time by default.
 
 ```php
 $googleTimeZone
