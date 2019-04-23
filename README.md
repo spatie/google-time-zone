@@ -85,8 +85,8 @@ You can get the result back in a specific language.
 
 ```php
 $googleTimeZone
+   ->setLanguage('es')
    ->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
-   ->setLanguage('es');
 
 /*
 // Will return this array
@@ -103,8 +103,8 @@ It is possible to specify a timestamp for the location so that daylight savings 
 
 ```php
 $googleTimeZone
+   ->setTimestamp(new DateTime('03/15/2016 12:00'))
    ->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
-   ->setTimestamp(new DateTime('03/15/2016 12:00'));
 
 /*
 // Will return this array
