@@ -1,11 +1,11 @@
 # Get time zones for coordinates
 
-[![Latest Version](https://img.shields.io/github/release/spatie/geocoder.svg?style=flat-square)](https://github.com/spatie/geocoder/releases)
+[![Latest Version](https://img.shields.io/github/release/spatie/google-time-zone.svg?style=flat-square)](https://github.com/spatie/google-time-zone/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/geocoder/master.svg?style=flat-square)](https://travis-ci.org/spatie/geocoder)
+[![Build Status](https://img.shields.io/travis/spatie/google-time-zone/master.svg?style=flat-square)](https://travis-ci.org/spatie/google-time-zone)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/c0e7c71d-351a-4996-9d74-24abfa074410.svg?style=flat-square)](https://insight.sensiolabs.com/projects/c0e7c71d-351a-4996-9d74-24abfa074410)
 [![StyleCI](https://styleci.io/repos/19355432/shield)](https://styleci.io/repos/19355432)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/geocoder.svg?style=flat-square)](https://packagist.org/packages/spatie/geocoder)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/google-time-zone.svg?style=flat-square)](https://packagist.org/packages/spatie/google-time-zone)
 
 This package can convert GPS coordinates to timzones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
 
@@ -35,7 +35,7 @@ Thought the package works fine in non-Laravel projects we included some niceties
 In Laravel will autoregister the package itself, you must publish the config file :
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Geocoder\GeocoderServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Spatie\GoogleTimeZone\GoogleTimeZoneServiceProvider" --tag="config"
 ```
 
 This is the content of the config file:
