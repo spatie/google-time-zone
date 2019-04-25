@@ -50,10 +50,8 @@ class GoogleTimeZone
         return $this;
     }
 
-    public function getTimeZoneForCoordinates(
-        string $latitude,
-        string $longitude
-    ): array {
+    public function getTimeZoneForCoordinates(string $latitude, string $longitude): array
+    {
         $payload = $this->getPayload($latitude, $longitude);
 
         $response = $this->client->get($this->endpoint, $payload);
