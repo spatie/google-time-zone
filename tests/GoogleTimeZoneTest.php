@@ -9,12 +9,13 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
 
-class GoogleTimeZoneTest extends TestCase
+final class GoogleTimeZoneTest extends TestCase
 {
     /** @var \Spatie\GoogleTimeZone\GoogleTimeZone */
-    protected $googleTimeZone;
+    private $googleTimeZone;
 
     /** @var array */
     private $historyContainer;
@@ -153,6 +154,23 @@ class GoogleTimeZoneTest extends TestCase
         $requestUri = $this->historyContainer[0]['request']->getUri();
 
         $this->assertEquals('key=fake_api_key&language=es&location=38.908133%2C-77.047119&timestamp=1458043200', $requestUri->getQuery());
+    }
+    
+    /** @test */
+    public function it_will_throw_an_exception_when_no_results_are_found()
+    {
+        $this->expectException(TimeZoneNotFound::class);
+
+        $client = $this->createFakeClient([
+            new Response(200, [], json_encode([
+                'status' => 'ZERO_RESULTS',
+            ])),
+        ]);
+
+        $googleTimezone = new GoogleTimeZone($client);
+
+        $googleTimezone->setApiKey('fake_api_key')
+            ->getTimeZoneForCoordinates('38.908133', '-77.047119');
     }
 
 

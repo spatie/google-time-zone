@@ -10,14 +10,14 @@
 This package can convert GPS coordinates to timzones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
 
 ```php
-GoogleTimeZone::getTimeZoneForCoordinates('39.6034810', '-119.6822510');
+GoogleTimeZone::getTimeZoneForCoordinates('51.2194475', '4.4024643');
 
 // Will return this array
 [
-   'dstOffset' : 0,
-   'rawOffset' : -28800,
-   'timeZoneId' : 'America/Los_Angeles',
-   'timeZoneName' : 'Pacific Standard Time'
+    "dstOffset" => 0
+    "rawOffset" => 3600
+    "timeZoneId" => "Europe/Brussels"
+    "timeZoneName" => "Central European Standard Time"
 ]
 ```
 
@@ -61,40 +61,37 @@ return [
 Here's how you can get the timezone for coordinates.
 
 ```php
-$client = new \GuzzleHttp\Client();
-
-$googleTimeZone = new GoogleTimeZone($client);
+$googleTimeZone = new GoogleTimeZone();
 
 $googleTimeZone->setApiKey(config('google-time-zone.key'));
 
-$googleTimeZone->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
+$googleTimeZone->getTimeZoneForCoordinates('51.2194475', '4.4024643');
 
 /*
 // Will return this array
 [
-    'dstOffset' : 0,
-    'rawOffset' : -28800,
-    'timeZoneId' : 'America/Los_Angeles',
-    'timeZoneName' : 'Pacific Standard Time'
+    "dstOffset" => 0
+    "rawOffset" => 3600
+    "timeZoneId" => "Europe/Brussels"
+    "timeZoneName" => "Central European Standard Time"
 ]
 */
 ```
-
 
 You can get the result back in a specific language.
 
 ```php
 $googleTimeZone
-   ->setLanguage('es')
-   ->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
+   ->setLanguage('nl')
+   ->getTimeZoneForCoordinates('51.2194475', '4.4024643');
 
 /*
 // Will return this array
 [
-    'dstOffset' : 0,
-    'rawOffset' : -28800,
-    'timeZoneId' : 'America/Los_Angeles',
-    'timeZoneName' : 'Hora de verano del Pacífico'
+      "dstOffset" => 0
+      "rawOffset" => 3600
+      "timeZoneId" => "Europe/Brussels"
+      "timeZoneName" => "Midden-Europese standaardtijd"
 ]
 */
 ```
@@ -103,16 +100,16 @@ It is possible to specify a timestamp for the location so that daylight savings 
 
 ```php
 $googleTimeZone
-   ->setTimestamp(new DateTime('03/15/2016 12:00'))
-   ->getTimeZoneForCoordinates('39.6034810', '-119.6822510');
+   ->setTimestamp(new DateTime('13 august 2018'))
+   ->getTimeZoneForCoordinates('51.2194475', '4.4024643');
 
 /*
 // Will return this array
 [
-    'dstOffset' : 3600,
-    'rawOffset' : -28800,
-    'timeZoneId' : 'America/Los_Angeles',
-    'timeZoneName' : 'Pacific Daylight Time'
+      "dstOffset" => 3600
+      "rawOffset" => 3600
+      "timeZoneId" => "Europe/Brussels"
+      "timeZoneName" => "Central European Summer Time"
 ]
 */
 ```
@@ -121,18 +118,20 @@ $googleTimeZone
 If you are using the package with Laravel, you can simply call `getTimeZoneForCoordinates `.
 
 ```php
-GoogleTimeZone::getTimeZoneForCoordinates('39.6034810', '-119.6822510');
+GoogleTimeZone::getTimeZoneForCoordinates('51.2194475', '4.4024643');
 
 /*
 // Will return this array
 [
-    'dstOffset' : 0,
-    'rawOffset' : -28800,
-    'timeZoneId' : 'America/Los_Angeles',
-    'timeZoneName' : 'Pacific Standard Time'
+    "dstOffset" => 0
+    "rawOffset" => 3600
+    "timeZoneId" => "Europe/Brussels"
+    "timeZoneName" => "Central European Standard Time"
 ]
 */
 ```
+
+When no time zone was found a `TimeZoneNotFound` exception will be thrown.
 
 ## Postcardware
 

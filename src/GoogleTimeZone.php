@@ -6,30 +6,31 @@ use DateTime;
 use DateTimeInterface;
 use GuzzleHttp\Client;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
+use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 
-class GoogleTimeZone
+final class GoogleTimeZone
 {
     /** @var \GuzzleHttp\Client */
-    protected $client;
+    private $client;
 
     /** @var string */
-    protected $endpoint = 'https://maps.googleapis.com/maps/api/timezone/json';
+    private $endpoint = 'https://maps.googleapis.com/maps/api/timezone/json';
 
     /** @var string */
-    protected $apiKey;
+    private $apiKey;
 
     /** @var string */
-    protected $language;
+    private $language;
 
     /** @var DateTimeInterface|null */
-    protected $timestamp;
+    private $timestamp;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client = null)
     {
-        $this->client = $client;
+        $this->client = $client ?? new Client();
     }
 
-    public function setApiKey(string $apiKey) : GoogleTimeZone
+    public function setApiKey(string $apiKey): GoogleTimeZone
     {
         $this->apiKey = $apiKey;
 
@@ -62,6 +63,10 @@ class GoogleTimeZone
 
         $timezoneResponse = json_decode($response->getBody());
 
+        if ($timezoneResponse->status === 'ZERO_RESULTS') {
+            throw TimeZoneNotFound::forCoordinates($latitude, $longitude);
+        }
+
         if (! empty($timezoneResponse->errorMessage)) {
             throw GoogleTimeZoneException::serviceReturnedError($timezoneResponse->errorMessage);
         }
@@ -85,7 +90,7 @@ class GoogleTimeZone
         ];
     }
 
-    private function formatResponse($timezoneResponse): array
+    private function formatResponse(object $timezoneResponse): array
     {
         return [
             'dstOffset' => $timezoneResponse->dstOffset,
