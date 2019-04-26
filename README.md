@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/google-time-zone/master.svg?style=flat-square)](https://travis-ci.org/spatie/google-time-zone)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/c0e7c71d-351a-4996-9d74-24abfa074410.svg?style=flat-square)](https://insight.sensiolabs.com/projects/c0e7c71d-351a-4996-9d74-24abfa074410)
-[![StyleCI](https://styleci.io/repos/19355432/shield)](https://styleci.io/repos/19355432)
+[![StyleCI](https://github.styleci.io/repos/183008491/shield?branch=master)](https://github.styleci.io/repos/183008491)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/google-time-zone.svg?style=flat-square)](https://packagist.org/packages/spatie/google-time-zone)
 
 This package can convert GPS coordinates to timzones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
