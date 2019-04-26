@@ -4,13 +4,13 @@ namespace Spatie\GoogleTimeZone\Tests;
 
 use DateTime;
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
+use GuzzleHttp\Handler\MockHandler;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
+use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 
 final class GoogleTimeZoneTest extends TestCase
 {
@@ -101,7 +101,6 @@ final class GoogleTimeZoneTest extends TestCase
         $this->assertEquals('Hora de verano del Pacífico', $timezone['timeZoneName']);
     }
 
-
     /** @test */
     public function it_creates_a_valid_request()
     {
@@ -129,7 +128,6 @@ final class GoogleTimeZoneTest extends TestCase
         $this->assertStringStartsWith('key=fake_api_key&location=38.908133%2C-77.047119&timestamp=', $requestUri->getQuery());
     }
 
-
     /** @test */
     public function it_creates_a_valid_request_with_language_and_timestamp()
     {
@@ -155,7 +153,7 @@ final class GoogleTimeZoneTest extends TestCase
 
         $this->assertEquals('key=fake_api_key&language=es&location=38.908133%2C-77.047119&timestamp=1458043200', $requestUri->getQuery());
     }
-    
+
     /** @test */
     public function it_will_throw_an_exception_when_no_results_are_found()
     {
@@ -172,7 +170,6 @@ final class GoogleTimeZoneTest extends TestCase
         $googleTimezone->setApiKey('fake_api_key')
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
     }
-
 
     private function createFakeClient(array $responses)
     {

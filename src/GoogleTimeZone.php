@@ -5,8 +5,8 @@ namespace Spatie\GoogleTimeZone;
 use DateTime;
 use DateTimeInterface;
 use GuzzleHttp\Client;
-use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
+use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
 final class GoogleTimeZone
 {
@@ -30,21 +30,21 @@ final class GoogleTimeZone
         $this->client = $client ?? new Client();
     }
 
-    public function setApiKey(string $apiKey): GoogleTimeZone
+    public function setApiKey(string $apiKey): self
     {
         $this->apiKey = $apiKey;
 
         return $this;
     }
 
-    public function setTimestamp(DateTimeInterface $dateTime): GoogleTimeZone
+    public function setTimestamp(DateTimeInterface $dateTime): self
     {
         $this->timestamp = $dateTime;
 
         return $this;
     }
 
-    public function setLanguage(string $language): GoogleTimeZone
+    public function setLanguage(string $language): self
     {
         $this->language = $language;
 
