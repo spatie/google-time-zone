@@ -6,7 +6,7 @@ use Exception;
 
 final class TimeZoneNotFound extends Exception
 {
-    public static function forCoordinates(string $latitude, string $longitude): TimeZoneNotFound
+    public static function forCoordinates(string $latitude, string $longitude): self
     {
         return new self("No time zone was found for coordinates (`{$latitude}`, `{$longitude}`)");
     }
