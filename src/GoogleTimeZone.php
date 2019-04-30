@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
-final class GoogleTimeZone
+class GoogleTimeZone
 {
     /** @var \GuzzleHttp\Client */
     private $client;
