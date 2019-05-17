@@ -61,6 +61,7 @@ class GoogleTimeZone
             throw GoogleTimeZoneException::couldNotConnect();
         }
 
+        /** @var GoogleTimeZoneResponse */
         $timezoneResponse = json_decode($response->getBody());
 
         if (! empty($timezoneResponse->errorMessage)) {
@@ -88,7 +89,7 @@ class GoogleTimeZone
         ];
     }
 
-    protected function formatResponse(object $timezoneResponse): array
+    protected function formatResponse(GoogleTimeZoneResponse $timezoneResponse): array
     {
         return [
             'dstOffset' => $timezoneResponse->dstOffset,
