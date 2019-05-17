@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
      * The api key used when sending timezone requests to Google.
      */

@@ -11,19 +11,19 @@ use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 class GoogleTimeZone
 {
     /** @var \GuzzleHttp\Client */
-    private $client;
+    protected $client;
 
     /** @var string */
-    private $endpoint = 'https://maps.googleapis.com/maps/api/timezone/json';
+    protected $endpoint = 'https://maps.googleapis.com/maps/api/timezone/json';
 
     /** @var string */
-    private $apiKey;
+    protected $apiKey;
 
     /** @var string */
-    private $language;
+    protected $language;
 
-    /** @var DateTimeInterface|null */
-    private $timestamp;
+    /** @var \DateTimeInterface|null */
+    protected $timestamp;
 
     public function __construct(Client $client = null)
     {
@@ -74,23 +74,21 @@ class GoogleTimeZone
         return $this->formatResponse($timezoneResponse);
     }
 
-    private function getPayload(string $latitude, string $longitude): array
+    protected function getPayload(string $latitude, string $longitude): array
     {
         $date = $this->timestamp ?? new DateTime();
 
-        $parameters = [
-            'key' => $this->apiKey,
-            'language' => $this->language,
-            'location' => "{$latitude},{$longitude}",
-            'timestamp' => $date->getTimestamp(),
-        ];
-
         return [
-            'query' => $parameters,
+            'query' => [
+                'key' => $this->apiKey,
+                'language' => $this->language,
+                'location' => "{$latitude},{$longitude}",
+                'timestamp' => $date->getTimestamp(),
+            ],
         ];
     }
 
-    private function formatResponse(object $timezoneResponse): array
+    protected function formatResponse(object $timezoneResponse): array
     {
         return [
             'dstOffset' => $timezoneResponse->dstOffset,

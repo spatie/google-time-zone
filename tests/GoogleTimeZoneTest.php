@@ -12,7 +12,7 @@ use GuzzleHttp\Handler\MockHandler;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
 use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 
-final class GoogleTimeZoneTest extends TestCase
+class GoogleTimeZoneTest extends TestCase
 {
     /** @var \Spatie\GoogleTimeZone\GoogleTimeZone */
     private $googleTimeZone;

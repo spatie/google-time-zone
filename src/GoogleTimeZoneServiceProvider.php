@@ -5,7 +5,7 @@ namespace Spatie\GoogleTimeZone;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
-final class GoogleTimeZoneServiceProvider extends ServiceProvider
+class GoogleTimeZoneServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -18,7 +18,7 @@ final class GoogleTimeZoneServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/google-time-zone.php', 'google-time-zone');
 
-        $this->app->bind('google-time-zone', function ($app) {
+        $this->app->bind('google-time-zone', function () {
             return (new GoogleTimeZone(new Client))
                 ->setApiKey(config('google-time-zone.key'))
                 ->setLanguage(config('google-time-zone.language', 'language'));

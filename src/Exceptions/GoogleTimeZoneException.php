@@ -4,14 +4,14 @@ namespace Spatie\GoogleTimeZone\Exceptions;
 
 use Exception;
 
-final class GoogleTimeZoneException extends Exception
+class GoogleTimeZoneException extends Exception
 {
-    public static function couldNotConnect()
+    public static function couldNotConnect(): self
     {
-        return new static('Could not connect to googleapis.com/maps/api');
+        return new static('Could not connect to https://googleapis.com/maps/api');
     }
 
-    public static function serviceReturnedError(string $message)
+    public static function serviceReturnedError(string $message): self
     {
         return new static("Google timezone failed because `{$message}`");
     }
