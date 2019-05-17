@@ -1,4 +1,4 @@
-# Get time zones for coordinates
+# Get the timezone used at the given coordinates
 
 [![Latest Version](https://img.shields.io/github/release/spatie/google-time-zone.svg?style=flat-square)](https://github.com/spatie/google-time-zone/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
