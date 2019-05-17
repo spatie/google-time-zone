@@ -30,9 +30,9 @@ composer require spatie/google-time-zone
 ```
 ## Laravel installation
 
-Thought the package works fine in non-Laravel projects we included some niceties for our fellow artisans.
+Though the package works fine in non-Laravel projects we've included some niceties for our fellow Artisans.
 
-In Laravel will autoregister the package itself, you must publish the config file :
+In Laravel will autoregister the package itself, but you should still publish the config file yourself.
 
 ```bash
 php artisan vendor:publish --provider="Spatie\GoogleTimeZone\GoogleTimeZoneServiceProvider" --tag="config"
@@ -58,7 +58,7 @@ return [
 
 ## Usage
 
-Here's how you can get the timezone for coordinates.
+Here's how you can get the time zone for a given set of coordinates.
 
 ```php
 $googleTimeZone = new GoogleTimeZone();
@@ -113,7 +113,6 @@ $googleTimeZone
 ]
 */
 ```
-
 
 If you are using the package with Laravel, you can simply call `getTimeZoneForCoordinates `.
 
