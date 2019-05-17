@@ -7,7 +7,7 @@
 [![StyleCI](https://github.styleci.io/repos/183008491/shield?branch=master)](https://github.styleci.io/repos/183008491)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/google-time-zone.svg?style=flat-square)](https://packagist.org/packages/spatie/google-time-zone)
 
-This package can convert GPS coordinates to timzones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
+This package can convert GPS coordinates to time zones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
 
 ```php
 GoogleTimeZone::getTimeZoneForCoordinates('51.2194475', '4.4024643');
@@ -114,7 +114,7 @@ $googleTimeZone
 */
 ```
 
-If you are using the package with Laravel, you can simply call `getTimeZoneForCoordinates `.
+If you are using the package with Laravel, you can simply call `getTimeZoneForCoordinates`.
 
 ```php
 GoogleTimeZone::getTimeZoneForCoordinates('51.2194475', '4.4024643');
