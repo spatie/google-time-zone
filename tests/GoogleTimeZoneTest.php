@@ -155,10 +155,8 @@ final class GoogleTimeZoneTest extends TestCase
     }
 
     /** @test */
-    public function it_will_throw_an_exception_when_no_results_are_found()
+    public function it_will_return_null_when_no_results_are_found()
     {
-        $this->expectException(TimeZoneNotFound::class);
-
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
                 'status' => 'ZERO_RESULTS',
@@ -167,8 +165,7 @@ final class GoogleTimeZoneTest extends TestCase
 
         $googleTimezone = new GoogleTimeZone($client);
 
-        $googleTimezone->setApiKey('fake_api_key')
-            ->getTimeZoneForCoordinates('38.908133', '-77.047119');
+        $this->assertNull($googleTimezone->setApiKey('fake_api_key')->getTimeZoneForCoordinates('38.908133', '-77.047119'));
     }
 
     private function createFakeClient(array $responses)

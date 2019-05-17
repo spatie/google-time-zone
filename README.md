@@ -130,7 +130,7 @@ GoogleTimeZone::getTimeZoneForCoordinates('51.2194475', '4.4024643');
 */
 ```
 
-When no time zone was found a `TimeZoneNotFound` exception will be thrown.
+When no time zone was found `null` will be returned.
 
 ## Postcardware
 

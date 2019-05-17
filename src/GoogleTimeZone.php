@@ -51,7 +51,7 @@ class GoogleTimeZone
         return $this;
     }
 
-    public function getTimeZoneForCoordinates(string $latitude, string $longitude): array
+    public function getTimeZoneForCoordinates(string $latitude, string $longitude): ?array
     {
         $payload = $this->getPayload($latitude, $longitude);
 
@@ -63,12 +63,12 @@ class GoogleTimeZone
 
         $timezoneResponse = json_decode($response->getBody());
 
-        if ($timezoneResponse->status === 'ZERO_RESULTS') {
-            throw TimeZoneNotFound::forCoordinates($latitude, $longitude);
-        }
-
         if (! empty($timezoneResponse->errorMessage)) {
             throw GoogleTimeZoneException::serviceReturnedError($timezoneResponse->errorMessage);
+        }
+
+        if ($timezoneResponse->status === 'ZERO_RESULTS') {
+            return null;
         }
 
         return $this->formatResponse($timezoneResponse);
