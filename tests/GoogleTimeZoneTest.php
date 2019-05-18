@@ -9,9 +9,8 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
-use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
-use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
+use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
 class GoogleTimeZoneTest extends TestCase
 {
