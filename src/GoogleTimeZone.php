@@ -5,7 +5,6 @@ namespace Spatie\GoogleTimeZone;
 use DateTime;
 use DateTimeInterface;
 use GuzzleHttp\Client;
-use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
 class GoogleTimeZone

@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
-use Spatie\GoogleTimeZone\Exceptions\TimeZoneNotFound;
+use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
 class GoogleTimeZoneTest extends TestCase
 {
@@ -177,5 +177,33 @@ class GoogleTimeZoneTest extends TestCase
         $handler->push(Middleware::history($this->historyContainer));
 
         return new Client(['handler' => $handler]);
+    }
+
+    /** @test */
+    public function it_will_except_when_status_code_is_other_then_200()
+    {
+        $this->expectException(GoogleTimeZoneException::class);
+
+        $client = $this->createFakeClient([
+            new Response(202, [], json_encode([
+                'status' => 'UNKNOWN_ERROR',
+            ])),
+        ]);
+
+        (new GoogleTimeZone($client))->getTimeZoneForCoordinates('38.908133', '-77.047119');
+    }
+
+    /** @test */
+    public function it_will_except_when_there_is_a_error_message_in_response()
+    {
+        $this->expectException(GoogleTimeZoneException::class);
+
+        $client = $this->createFakeClient([
+            new Response(202, [], json_encode([
+                'errorMessage' => 'some error message',
+            ])),
+        ]);
+
+        (new GoogleTimeZone($client))->getTimeZoneForCoordinates('38.908133', '-77.047119');
     }
 }
