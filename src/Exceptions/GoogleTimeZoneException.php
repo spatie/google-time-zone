@@ -18,6 +18,6 @@ class GoogleTimeZoneException extends Exception
 
     public static function unsupportedLanguage(): self
     {
-        return new static("Unsupported google timezone language");
+        return new static('Unsupported google timezone language');
     }
 }

@@ -8,8 +8,8 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Spatie\GoogleTimeZone\Language;
 use GuzzleHttp\Handler\MockHandler;
+use Spatie\GoogleTimeZone\Language;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
