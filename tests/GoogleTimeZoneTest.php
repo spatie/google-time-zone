@@ -8,6 +8,7 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Spatie\GoogleTimeZone\Language;
 use GuzzleHttp\Handler\MockHandler;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
@@ -92,7 +93,7 @@ class GoogleTimeZoneTest extends TestCase
         $googleTimezone = new GoogleTimeZone($client);
 
         $timezone = $googleTimezone->setApiKey('fake_api_key')
-            ->setLanguage('es')
+            ->setLanguage(new Language(Language::SPANISH))
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
 
         $this->assertEquals(3600, $timezone['dstOffset']);
@@ -144,7 +145,7 @@ class GoogleTimeZoneTest extends TestCase
         $googleTimezone = new GoogleTimeZone($client);
 
         $googleTimezone->setApiKey('fake_api_key')
-            ->setLanguage('es')
+            ->setLanguage(new Language(Language::SPANISH))
             ->setTimeStamp(new DateTime('03/15/2016 12:00'))
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
 

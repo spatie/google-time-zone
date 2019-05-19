@@ -15,4 +15,9 @@ class GoogleTimeZoneException extends Exception
     {
         return new static("Google timezone failed because `{$message}`");
     }
+
+    public static function unsupportedLanguage(): self
+    {
+        return new static("Unsupported google timezone language");
+    }
 }
