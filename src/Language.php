@@ -167,7 +167,7 @@ final class Language
     public const URDU = 'ur';
     /** @var string */
     public const UZBEK = 'uz';
-    /** @var string */  
+    /** @var string */
     public const VIETNAMESE = 'vi';
     /** @var string */
     public const ZULU = 'zu';
