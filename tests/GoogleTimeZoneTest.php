@@ -4,13 +4,13 @@ namespace Spatie\GoogleTimeZone\Tests;
 
 use DateTime;
 use GuzzleHttp\Client;
-use GuzzleHttp\Middleware;
+use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use GuzzleHttp\Handler\MockHandler;
-use Spatie\GoogleTimeZone\GoogleTimeZone;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
+use Spatie\GoogleTimeZone\GoogleTimeZone;
 
 class GoogleTimeZoneTest extends TestCase
 {
