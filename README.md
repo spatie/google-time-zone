@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/github/release/spatie/google-time-zone.svg?style=flat-square)](https://github.com/spatie/google-time-zone/releases)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/google-time-zone/master.svg?style=flat-square)](https://travis-ci.org/spatie/google-time-zone)
+![run-tests](https://github.com/spatie/google-time-zone/workflows/run-tests/badge.svg)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/google-time-zone.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/google-time-zone)
 [![StyleCI](https://github.styleci.io/repos/183008491/shield?branch=master)](https://github.styleci.io/repos/183008491)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/google-time-zone.svg?style=flat-square)](https://packagist.org/packages/spatie/google-time-zone)
