@@ -2,6 +2,10 @@
 
 All notable changes to `google-time-zone` will be documented in this file.
 
+## 1.2.1 - 2019-09-09
+
+- Add support for Laravel 8.0
+
 ## 1.2.0 - 2020-03-26
 
 - Add support for Laravel 7.0
