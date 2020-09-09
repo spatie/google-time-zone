@@ -3,8 +3,7 @@
 [![Latest Version](https://img.shields.io/github/release/spatie/google-time-zone.svg?style=flat-square)](https://github.com/spatie/google-time-zone/releases)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 ![run-tests](https://github.com/spatie/google-time-zone/workflows/run-tests/badge.svg)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/google-time-zone.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/google-time-zone)
-[![StyleCI](https://github.styleci.io/repos/183008491/shield?branch=master)](https://github.styleci.io/repos/183008491)
+![Check & fix styling](https://github.com/spatie/google-time-zone/workflows/Check%20&%20fix%20styling/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/google-time-zone.svg?style=flat-square)](https://packagist.org/packages/spatie/google-time-zone)
 
 This package can convert GPS coordinates to time zones using [Google's Time Zone service](https://developers.google.com/maps/documentation/timezone/intro). Here's a quick example:
