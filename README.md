@@ -1,3 +1,6 @@
+
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+
 # Get the time zone used at the given coordinates
 
 [![Latest Version](https://img.shields.io/github/release/spatie/google-time-zone.svg?style=flat-square)](https://github.com/spatie/google-time-zone/releases)
