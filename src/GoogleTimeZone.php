@@ -78,6 +78,7 @@ class GoogleTimeZone
         $date = $this->timestamp ?? new DateTime();
 
         return [
+            'base_url' => '',
             'query' => [
                 'key' => $this->apiKey,
                 'language' => $this->language,
