@@ -27,8 +27,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->historyContainer = [];
     }
 
-    /** @test */
-    public function it_can_find_a_timezone_with_timestamp()
+    public function test_it_can_find_a_timezone_with_timestamp()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -52,8 +51,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->assertEquals('Eastern Daylight Time', $timezone['timeZoneName']);
     }
 
-    /** @test */
-    public function it_can_find_a_timezone_without_timestamp()
+    public function test_it_can_find_a_timezone_without_timestamp()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -76,8 +74,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->assertEquals('Eastern Daylight Time', $timezone['timeZoneName']);
     }
 
-    /** @test */
-    public function it_can_find_a_timezone_in_a_specified_language()
+    public function test_it_can_find_a_timezone_in_a_specified_language()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -101,8 +98,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->assertEquals('Hora de verano del Pacífico', $timezone['timeZoneName']);
     }
 
-    /** @test */
-    public function it_creates_a_valid_request()
+    public function test_it_creates_a_valid_request()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -128,8 +124,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->assertStringStartsWith('key=fake_api_key&location=38.908133%2C-77.047119&timestamp=', $requestUri->getQuery());
     }
 
-    /** @test */
-    public function it_creates_a_valid_request_with_language_and_timestamp()
+    public function test_it_creates_a_valid_request_with_language_and_timestamp()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -154,8 +149,7 @@ class GoogleTimeZoneTest extends TestCase
         $this->assertEquals('key=fake_api_key&language=es&location=38.908133%2C-77.047119&timestamp=1458043200', $requestUri->getQuery());
     }
 
-    /** @test */
-    public function it_will_return_null_when_no_results_are_found()
+    public function test_it_will_return_null_when_no_results_are_found()
     {
         $client = $this->createFakeClient([
             new Response(200, [], json_encode([
@@ -179,8 +173,7 @@ class GoogleTimeZoneTest extends TestCase
         return new Client(['handler' => $handler]);
     }
 
-    /** @test */
-    public function it_will_except_when_status_code_is_other_then_200()
+    public function test_it_will_except_when_status_code_is_other_then_200()
     {
         $this->expectException(GoogleTimeZoneException::class);
 
@@ -193,8 +186,7 @@ class GoogleTimeZoneTest extends TestCase
         (new GoogleTimeZone($client))->getTimeZoneForCoordinates('38.908133', '-77.047119');
     }
 
-    /** @test */
-    public function it_will_except_when_there_is_a_error_message_in_response()
+    public function test_it_will_except_when_there_is_a_error_message_in_response()
     {
         $this->expectException(GoogleTimeZoneException::class);
 
