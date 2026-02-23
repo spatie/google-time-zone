@@ -20,7 +20,7 @@ class GoogleTimeZoneTest extends TestCase
     /** @var array */
     private $historyContainer;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

@@ -26,7 +26,7 @@ class GoogleTimeZone
 
     public function __construct(?Client $client = null)
     {
-        $this->client = $client ?? new Client();
+        $this->client = $client ?? new Client;
     }
 
     public function setApiKey(string $apiKey): self
@@ -75,7 +75,7 @@ class GoogleTimeZone
 
     protected function getPayload(string $latitude, string $longitude): array
     {
-        $date = $this->timestamp ?? new DateTime();
+        $date = $this->timestamp ?? new DateTime;
 
         return [
             'base_url' => '',
