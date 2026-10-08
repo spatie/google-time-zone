@@ -9,7 +9,7 @@ use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 
 class GoogleTimeZone
 {
-    /** @var \GuzzleHttp\Client */
+    /** @var Client */
     protected $client;
 
     /** @var string */
@@ -21,7 +21,7 @@ class GoogleTimeZone
     /** @var string */
     protected $language;
 
-    /** @var \DateTimeInterface|null */
+    /** @var DateTimeInterface|null */
     protected $timestamp;
 
     public function __construct(?Client $client = null)

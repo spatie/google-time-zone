@@ -8,13 +8,14 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Uri;
 use PHPUnit\Framework\TestCase;
 use Spatie\GoogleTimeZone\Exceptions\GoogleTimeZoneException;
 use Spatie\GoogleTimeZone\GoogleTimeZone;
 
 class GoogleTimeZoneTest extends TestCase
 {
-    /** @var \Spatie\GoogleTimeZone\GoogleTimeZone */
+    /** @var GoogleTimeZone */
     private $googleTimeZone;
 
     /** @var array */
@@ -115,7 +116,7 @@ class GoogleTimeZoneTest extends TestCase
         $googleTimezone->setApiKey('fake_api_key')
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
 
-        /** @var \GuzzleHttp\Psr7\Uri $requestUri */
+        /** @var Uri $requestUri */
         $requestUri = $this->historyContainer[0]['request']->getUri();
 
         $this->assertEquals('https', $requestUri->getScheme());
@@ -143,7 +144,7 @@ class GoogleTimeZoneTest extends TestCase
             ->setTimeStamp(new DateTime('03/15/2016 12:00'))
             ->getTimeZoneForCoordinates('38.908133', '-77.047119');
 
-        /** @var \GuzzleHttp\Psr7\Uri $requestUri */
+        /** @var Uri $requestUri */
         $requestUri = $this->historyContainer[0]['request']->getUri();
 
         $this->assertEquals('key=fake_api_key&language=es&location=38.908133%2C-77.047119&timestamp=1458043200', $requestUri->getQuery());
