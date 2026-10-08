@@ -50,6 +50,9 @@ class GoogleTimeZone
         return $this;
     }
 
+    /**
+     * @return array{dstOffset: int, rawOffset: int, timeZoneId: string, timeZoneName: string}|null
+     */
     public function getTimeZoneForCoordinates(string $latitude, string $longitude): ?array
     {
         $payload = $this->getPayload($latitude, $longitude);
@@ -88,6 +91,9 @@ class GoogleTimeZone
         ];
     }
 
+    /**
+     * @return array{dstOffset: int, rawOffset: int, timeZoneId: string, timeZoneName: string}
+     */
     protected function formatResponse(object $timezoneResponse): array
     {
         return [
